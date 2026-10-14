@@ -43,7 +43,9 @@ def download_file(url: str, dest: Path, cfg: Config) -> Path:
                         fh.write(chunk)
                         done += len(chunk)
                         if total and done / total >= next_report:
-                            logger.info("  %s: %.0f%% (%.1f MB)", dest.name, 100 * done / total, done / 1e6)
+                            logger.info(
+                                "  %s: %.0f%% (%.1f MB)", dest.name, 100 * done / total, done / 1e6
+                            )
                             next_report += 0.1
             part.replace(dest)
             logger.info("Saved %s (%.1f MB)", dest, dest.stat().st_size / 1e6)

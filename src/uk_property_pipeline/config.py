@@ -12,7 +12,9 @@ from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "config" / "config.yaml"
-DEFAULT_SQLITE_URL = f"sqlite:///{(PROJECT_ROOT / 'data' / 'processed' / 'ukproperty.db').as_posix()}"
+DEFAULT_SQLITE_URL = (
+    f"sqlite:///{(PROJECT_ROOT / 'data' / 'processed' / 'ukproperty.db').as_posix()}"
+)
 
 
 @dataclass(frozen=True)
