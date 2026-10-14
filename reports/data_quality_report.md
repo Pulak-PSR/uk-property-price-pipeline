@@ -1,15 +1,13 @@
 # Data Quality Report
 
-Generated: 2026-10-14 05:41
-
-**Note: generated from a SAMPLE run, not the full dataset.**
+Generated: 2026-10-14 05:50
 
 ## Row counts
 
 | Metric | Rows | % of input |
 |---|---:|---:|
-| Rows in | 50,000 | 100% |
-| Rows out | 50,000 | 100.000% |
+| Rows in | 2,767,042 | 100% |
+| Rows out | 2,767,042 | 100.000% |
 | Dropped: missing transaction id, price or date | 0 | 0.000% |
 | Dropped: non-positive price | 0 | 0.000% |
 | Dropped: record_status = D (deleted) | 0 | 0.000% |
@@ -20,12 +18,12 @@ Generated: 2026-10-14 05:41
 
 | Metric | Rows |
 |---|---:|
-| Invalid / missing postcodes | 125 |
-| Price below minimum threshold | 132 |
-| Log-price IQR outliers | 285 |
-| Total outlier-flagged rows | 285 |
+| Invalid / missing postcodes | 7,428 |
+| Price below minimum threshold | 8,872 |
+| Log-price IQR outliers | 17,609 |
+| Total outlier-flagged rows | 17,609 |
 
-Log-price IQR fence: £15,545 to £5,186,448.
+Log-price IQR fence: £13,675 to £5,594,203.
 
 ## Null counts per column
 
@@ -34,14 +32,14 @@ Log-price IQR fence: £15,545 to £5,186,448.
 | transaction_id | 0 | 0 |
 | price | 0 | 0 |
 | date_of_transfer | 0 | 0 |
-| postcode | 125 | 125 |
+| postcode | 7,426 | 7,426 |
 | property_type | 0 | 0 |
 | old_new | 0 | 0 |
 | duration | 0 | 0 |
 | paon | 0 | 0 |
-| saon | 44,017 | 44,017 |
-| street | 828 | 828 |
-| locality | 30,875 | 30,875 |
+| saon | 2,408,353 | 2,408,353 |
+| street | 45,378 | 45,378 |
+| locality | 1,713,523 | 1,713,523 |
 | town_city | 0 | 0 |
 | district | 0 | 0 |
 | county | 0 | 0 |
@@ -52,6 +50,6 @@ Empty strings count as null. Optional address fields such as `saon` and `localit
 
 ## Price summary (cleaned data)
 
-- Date range: 2025-01-01 to 2025-12-31
-- Mean: £401,898, median: £285,500
-- Min: £100, max: £793,020,000
+- Date range: 2023-01-01 to 2025-12-31
+- Mean: £398,989, median: £280,000
+- Min: £1, max: £793,020,000
