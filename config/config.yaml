@@ -1,0 +1,43 @@
+# Pipeline configuration. Change URLs/years here, not in code.
+years: [2023, 2024, 2025]
+
+# {year} is substituted. Source: HM Land Registry Price Paid Data (OGL v3.0).
+# https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
+url_template: "http://prod1.publicdata.landregistry.gov.uk.s3-website-eu-west-1.amazonaws.com/pp-{year}.csv"
+# Optional per-year overrides (take priority over url_template)
+url_overrides: {}
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  reports: reports
+  region_lookup: data/reference/postcode_area_region.csv
+
+columns:
+  - transaction_id
+  - price
+  - date_of_transfer
+  - postcode
+  - property_type
+  - old_new
+  - duration
+  - paon
+  - saon
+  - street
+  - locality
+  - town_city
+  - district
+  - county
+  - ppd_category_type
+  - record_status
+
+download:
+  retries: 4
+  backoff_seconds: 3
+  timeout_seconds: 60
+  chunk_bytes: 1048576
+
+cleaning:
+  min_price: 10000          # prices below this are flagged as outliers
+  iqr_multiplier: 3.0       # log-price IQR fence multiplier
+  sample_rows: 50000        # rows used by --sample
