@@ -77,7 +77,8 @@ def validate(df: pd.DataFrame) -> pd.DataFrame:
     invalid_rate = 1 - df["is_valid_postcode"].mean()
     if invalid_rate > MAX_INVALID_POSTCODE_RATE:
         problems.append(
-            f"invalid postcode rate {invalid_rate:.2%} exceeds limit {MAX_INVALID_POSTCODE_RATE:.0%}"
+            f"invalid postcode rate {invalid_rate:.2%} exceeds "
+            f"limit {MAX_INVALID_POSTCODE_RATE:.0%}"
         )
 
     if problems:
